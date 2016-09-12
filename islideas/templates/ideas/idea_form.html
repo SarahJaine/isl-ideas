@@ -1,0 +1,23 @@
+{% extends 'ideas/base.html' %}
+{% block title %}
+New Idea{{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+
+<div class="modify-content__container">
+    <div class="row">
+        <div class="columns small-12 medium-8 medium-offset-2">
+            <h1 class="heading--medium">New Idea</h1>
+            <form role="form" action="/add/" method="post">
+            {% csrf_token %}
+            {{ idea_form.as_p }}
+            {{ tag_form.name.errors }}
+            <button type="submit" class="button">Submit Idea</button>
+            <a href="{% url 'home' %}" class="text-link--alt text-link--no-decoration text-link__space-left">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div> <!-- end .modify-content__container -->
+{% endblock %}

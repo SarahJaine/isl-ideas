@@ -1,0 +1,64 @@
+.idea-detail__functions {
+    background: $light-gray;
+}
+
+.idea-detail__content {
+    margin: 0 auto rem-calc(40);
+    max-width: rem-calc(630);
+    padding: rem-calc(40) 0;
+}
+
+.idea-detail__header {
+    margin-bottom: rem-calc(10);
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media #{$medium-up} {
+        flex-direction: row;
+    }
+}
+
+.idea-detail__summary {
+    margin-bottom: rem-calc(40);
+}
+
+.idea-detail__comment-form {
+    margin-bottom: rem-calc(40);
+}
+
+.comment-form__input {
+    margin: rem-calc(30) 0;
+
+    textarea {
+        resize: vertical;
+        max-height: rem-calc(150);
+    }
+}
+
+
+.idea-detail__seperator-comment-number {
+    width: 100%;
+    border-top: 1px solid $light-gray;
+    border-bottom: 1px solid $light-gray;
+    font-size: 1em;
+    text-align: center;
+    padding: rem-calc(10) 0;
+    margin-bottom: rem-calc(30);
+}
+
+.idea-detail__comments {
+    margin-bottom: rem-calc(100);
+}
+
+.idea-detail__comment {
+    padding: rem-calc(20) 0;
+
+    p {
+        margin-bottom: rem-calc(10);
+    }
+
+    border-bottom: 1px solid $light-gray;
+}
+
+.comment-meta__user {
+}

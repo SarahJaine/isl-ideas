@@ -1,0 +1,20 @@
+// Transitions
+
+// @MIXIN
+//
+// Include a simple transition for specified properties
+//
+// $properties - a comma separated list of properties to transition. Default: all
+// $default-transition-speed - Found in settings file
+// $default-transition-ease - Found in settings file
+
+@mixin transition($properties...) {
+  $properties: if(length($properties) == 0, all, $properties);
+
+  $transitions: ();
+  
+  @for $i from 1 through length($properties) {
+    $transitions: append($transitions, append(nth($properties, $i), $default-transition-speed $default-transition-ease), comma);
+  }
+  transition: $transitions;
+}

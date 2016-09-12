@@ -1,0 +1,38 @@
+{% extends 'ideas/base.html' %}
+{% load staticfiles %}
+{% block title %}Tags{{ block.super }}
+{% endblock title %}
+{% block content %}
+
+{% include 'ideas/partials/utility_bar.html' %}
+
+<div class="lightest-gray screen-block">
+    <div class="row">
+        <div class="columns small-12 medium-10 medium-offset-1">
+            <br><br>
+            <h2 class="tag-summary__heading heading--small center-text">Tags</h2>
+            <p class="meta-info center-text">Click on a tag to view a list of all tags associated with that tag.  You can make a new tag while adding a new tag.</p>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="columns small-12 medium-10 medium-offset-1">
+            <div class="tag-list center-text">
+
+                {% for tag in tag_list %}
+                    <span class="tag-tags">
+                        <a href="{% url 'tag' slug=tag.slug %}">
+                            <div class="tag-label">
+                                {{tag.name}}
+                            </div>
+                        </a>
+                    </span> <!-- end .tag-tags -->
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+

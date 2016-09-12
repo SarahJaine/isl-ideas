@@ -1,0 +1,113 @@
+{% extends 'ideas/interior.html' %}
+{% load humanize %}
+{% block title %}
+  {{ idea.title }}{{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+<div class="idea-detail__functions">
+    <div class="row">
+        <div class="columns small-12 medium-8 medium-offset-2">
+        </div>
+    </div>
+</div> <!-- end .idea-details__functions -->
+
+<div class="row">
+    <div class="columns small-12">
+        <div class="idea-detail__content">
+            <div class="idea-detail__header">
+                <div class="idea-vote-container">
+                    <div class="idea-vote {% if idea.id in user_votes %} idea-vote__cast {% endif %}" data-idea-id="{{ idea.id }}">
+                        <div class="vote-form" id="ballot">
+                            <div class="idea-vote__indicator-arrow"></div>
+                        </div>
+                        <div class="vote__total" id="vote__total-for-{{ idea.id }}">
+                           {{ idea.votes }}
+                        </div>
+                    </div>
+                    <div class="meta-info display--small-only display--small-only-inline">
+                        <div class="seperator"></div>
+                        <a href="#comments" class="text-link--alt">{{ idea.comments }} Comments</a>
+
+                        {% if idea.author_name == user.username %}
+                        <div class="seperator"></div>
+                            <a href="{% url 'idea_edit' idea.slug %}" class="text-link--alt">Edit Idea</a>
+                            <div class="seperator"></div>
+                            <a href="{% url 'idea_confirm_delete' idea.slug %}" class="text-link--alt">
+                                Delete Idea
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="idea-details">
+                    <h2 class="idea-summary__heading heading--small">
+                        {{ idea.title }}
+                    </h2>
+                    <div class="meta-info">
+                        <div class="meta-info__author">
+                            Submitted {{ idea.date|naturaltime }} by {{ idea.author_name }}
+                            </a>
+                        </div>
+                        <div class="meta-info__data display--medium-up">
+                            <a href="#comments" class="text-link--alt">{{ idea.comments }} Comments</a>
+
+                            {% if idea.author_name == user.username %}
+                                <div class="seperator"></div>
+                                <a href="{% url 'idea_edit' idea.slug %}" class="text-link--alt">Edit Idea</a>
+                                <div class="seperator"></div>
+                                <a href="{% url 'idea_confirm_delete' idea.slug %}" class="text-link--alt">
+                                    Delete Idea
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div> <!-- end .idea-details -->
+
+
+            </div> <!-- end .idea-detail__header -->
+            <div class="idea-detail__summary">
+                <p>
+                    {{ idea.description }}
+                </p>
+            </div>
+            {% include 'ideas/partials/idea_tags.html' %}
+            <br>
+            <span id="comments"></span>
+            <div class="idea-detail__seperator-comment-number">
+                <span id="comment__total-for-{{ idea.id }}">{{ idea.comments }}</span> Comments
+            </div>
+            <div class="idea-detail__comment-form">
+                <textarea class="comment-form__input" type="text" rows="4"></textarea>
+                <button class="button comment-button">Comment</button>
+            </div>
+            <div class="idea-detail__comments" id="idea-detail__comments">
+                {% for comment in idea.comment_set.all %}
+                    <div class="idea-detail__comment" id=>
+                        <div class="meta-info">
+                            <span class="comment-meta__user">{{ comment.author_name }}</span>  <div class="seperator"></div>  {{ comment.date|naturaltime }}
+                        </div>
+                        <p>
+                            {{ comment.description }}
+                        </p>
+                        {% if comment.author_name == user.username %}
+                            <div class="text-small-neutral">
+                                <a href="{% url 'comment_edit' comment.idea.slug comment.id %}" class="text-link--alt text-link--no-decoration">
+                                    Edit
+                                </a>
+                                <div class="seperator"></div>
+                                <a href="{% url 'comment_confirm_delete' comment.idea.slug comment.id %}" class="text-link--primary text-link--no-decoration">
+                                    Delete
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div> <!-- end .idea-detail__comment -->
+
+                {% endfor %}
+            </div>
+        </div> <!-- end .idea-detail__content -->
+
+    </div> <!-- end .columns -->
+</div> <!-- end .row -->
+
+{% endblock content %}

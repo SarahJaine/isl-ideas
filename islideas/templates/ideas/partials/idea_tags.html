@@ -1,0 +1,20 @@
+<div class="idea-tags">
+    {% if idea.tags.all %}
+        <ul class="tag-list">
+            <li class="tag-list__heading">
+                Tags
+            </li>
+        {% for tag in idea.tags.all %}
+
+                <li class="tag-list__item">
+                     <a href="{% url 'tag' slug=tag.slug %}">
+                        <div class="tag-label">
+                            {{tag.name}}
+                        </div>
+                    </a>
+                </li>
+
+        {% endfor %}
+        </ul>
+    {% endif %}
+</div>

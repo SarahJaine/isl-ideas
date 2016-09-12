@@ -1,0 +1,10 @@
+{% extends 'ideas/base.html' %}
+{% load staticfiles %}
+{% block title %}Home{{ block.super }}
+{% endblock title %}
+{% block content %}
+
+{% include 'ideas/partials/utility_bar.html' %}
+{% include 'ideas/partials/list.html' %}
+
+{% endblock content %}

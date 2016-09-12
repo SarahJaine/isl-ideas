@@ -1,0 +1,75 @@
+// Typography
+
+
+// Headings
+
+%heading--large,
+.heading--large {
+    font-size: 2rem;
+    line-height: 1.13;
+    font-family: $header-font-family;
+
+    @media #{$medium-up} {
+        font-size: 2rem;
+    }
+}
+
+%heading--medium,
+.heading--medium {
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-family: $header-font-family;
+
+    @media #{$medium-up} {
+        font-size: 1.625rem;
+        line-height: 1.125;
+    }
+}
+
+%heading--small,
+.heading--small {
+    font-family: $header-font-family;
+    font-size: 1.375rem;
+    line-height: 1.25;
+}
+
+%heading--subheader,
+.heading--subheader {
+    @extend %type--alt;
+    line-height: 1.5;
+}
+
+// Body/paragraph type
+
+%type--alt,
+.type--alt {
+    font-size: .875rem;
+    font-weight: $font-weight-bold;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+%type--large,
+.type--large {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+%type--medium,
+.type--medium {
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+
+%type--small,
+.type--small {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+// Text utilities
+
+.text-underline {
+    text-decoration: underline;
+}

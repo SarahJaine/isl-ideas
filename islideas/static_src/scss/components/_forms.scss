@@ -1,0 +1,30 @@
+[type='text'], [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto !important;
+    padding: 0.5rem;
+    border: 1px solid #D9DBE0;
+    margin: 0 0 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #1e1e25;
+    background-color: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    transition: box-shadow 0.5s, border-color 0.1s ease-in-out;
+
+    &:hover {
+        border: 1px solid darken(#D9DBE0, 10%);
+    }
+
+    &:focus {
+        border: 1px solid lighten($primary-color,25%);
+        background-color: #fff;
+        outline: none;
+        box-shadow: 0px 0px 5px 0px rgba(238,100,90, .3);
+        transition: box-shadow 0.5s, border-color 0.1s ease-in-out;
+    }
+
+
+}

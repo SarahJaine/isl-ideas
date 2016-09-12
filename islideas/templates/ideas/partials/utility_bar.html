@@ -1,0 +1,36 @@
+<div class="utility-bar">
+    <div class="row">
+        <div class="columns small-12 medium-10 medium-offset-1">
+            <div class="utility-bar__content">
+                <ul class="utility-bar__list">
+                    <li class="utility-bar__list-item">
+                        <a href="{% url 'home' %}" id="top" class="list-item--top
+                        {% url 'home' as page_url %}
+{% if request.get_full_path == page_url %}active{% endif %}
+                        ">
+                            Top
+                        </a>
+                    </li>
+                    <li class="utility-bar__list-item ">
+                        <a href="{% url 'new' %}" id="new" class="{% url 'new' as page_url %}
+{% if request.get_full_path == page_url %}active{% endif %}">
+                            New
+                        </a>
+                    </li>
+                    <li class="utility-bar__list-item left-separator">
+                        <a href="{% url 'tag_list' %}" class="{% url 'tag_list' as page_url %}
+{% if request.get_full_path == page_url %}active{% endif %}">
+                            Tags
+                        </a>
+                    </li>
+                </ul>
+                <div class="utility-bar__button">
+                    <a class="button " href="{% url 'idea_form' %}">
+                        + Add Idea
+                    </a>
+                </div>
+
+            </div>
+        </div> <!-- end .columns -->
+    </div> <!-- end .row -->
+</div>

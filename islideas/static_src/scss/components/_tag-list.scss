@@ -1,0 +1,41 @@
+.screen-block {
+    height: 100vh;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.lightest-gray {
+    background-color: $lightest-gray;
+}
+
+.tag-summary__heading {
+    margin: 0.5rem 0 1rem 0;
+}
+
+.meta-info, .tag-tags, {
+    font-size: .8125rem;
+    color: $slate;
+}
+
+.tag-list {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+}
+
+.tag-tags {
+    a {
+        margin: 0.4rem;
+        display: inline-block;
+    }
+}
+
+.tag-label {
+    border: 1px solid $medium-gray;
+    display: inline-block;
+    border-radius: rem-calc(20);
+    padding: rem-calc(2) rem-calc(9);
+    background-color: $white;
+}

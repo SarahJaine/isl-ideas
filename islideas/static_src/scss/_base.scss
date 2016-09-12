@@ -1,0 +1,281 @@
+// Antialiased
+//
+// Applies font smoothing to body fonts.
+//
+// Styleguide base.antialiased
+
+body {
+    @extend .antialiased;
+    font-family: $body-font-family;
+}
+
+
+// Headers
+//
+// Header styles for H1 through H6 elements.
+//
+// Markup:
+// <h1>Forget it, Donny, you&rsquo;re out of your element!</h1>
+// <h2>Forget it, Donny, you&rsquo;re out of your element!</h2>
+// <h3>Forget it, Donny, you&rsquo;re out of your element!</h3>
+// <h4>Forget it, Donny, you&rsquo;re out of your element!</h4>
+// <h5>Forget it, Donny, you&rsquo;re out of your element!</h5>
+// <h6>Forget it, Donny, you&rsquo;re out of your element!</h6>
+//
+// Styleguide base.headers
+
+
+// Subheaders
+//
+// Tweaks to Foundation subheaders.
+//
+// Markup:
+// <h1 class="subheader">Forget it, Donny, you&rsquo;re out of your element!</h1>
+// <h2 class="subheader">Forget it, Donny, you&rsquo;re out of your element!</h2>
+// <h3 class="subheader">Forget it, Donny, you&rsquo;re out of your element!</h3>
+// <h4 class="subheader">Forget it, Donny, you&rsquo;re out of your element!</h4>
+// <h5 class="subheader">Forget it, Donny, you&rsquo;re out of your element!</h5>
+// <h6 class="subheader">Forget it, Donny, you&rsquo;re out of your element!</h6>
+//
+// Styleguide base.subheaders
+
+
+// Small header segments
+//
+// Small header styles for H1 through H6 elements.
+//
+// Markup:
+// <h1>Forget it, Donny, <small>you&rsquo;re out of your element!</small></h1>
+// <h2>Forget it, Donny, <small>you&rsquo;re out of your element!</small></h2>
+// <h3>Forget it, Donny, <small>you&rsquo;re out of your element!</small></h3>
+// <h4>Forget it, Donny, <small>you&rsquo;re out of your element!</small></h4>
+// <h5>Forget it, Donny, <small>you&rsquo;re out of your element!</small></h5>
+// <h6>Forget it, Donny, <small>you&rsquo;re out of your element!</small></h6>
+//
+// Styleguide base.smallheadersegments
+
+
+// Paragraphs
+//
+// Default body copy styles for a P element.
+//
+// Markup:
+// <p>Look, let me explain something to you. I&rsquo;m not Mr. Lebowski.
+// You&rsquo;re Mr. Lebowski. I&rsquo;m the Dude. So that&rsquo;s what you call
+// me. That, or His Dudeness &hellip; Duderor &hellip; El Duderino, if, you
+// know, you&rsquo;re not into the whole brevity thing.</p>
+//
+// Styleguide base.paragraphs
+
+
+// Links
+//
+// Tweaks to Foundation links.
+//
+// Markup:
+// <p>Careful, man, <a href="https://www.youtube.com/watch?v=HUPB4hMAbbY">
+// there&rsquo;s a beverage here!</a></p>
+//
+// Styleguide base.links
+
+a {
+    color: $body-font-color;
+    transition: color .2s ;
+    &:hover {
+        color: $primary-color;
+    }
+}
+
+
+
+
+// Lists
+//
+// Standard ordered, unordered, and definition lists.
+//
+// Markup:
+// <ul>
+//   <li>Do you see what happens, Larry?</li>
+//   <li>Do you see what happens when you find a stranger in the alps?</li>
+//   <li>This is what happens, You see what happens Larry!</li>
+//   <li>This is what happens when you feed a stoner scrambled eggs!</li>
+// </ul>
+//
+// Styleguide base.lists
+
+ul {
+    margin: 0;
+}
+
+
+// Form Labels
+//
+// Tweaks to Foundation form labels.
+//
+// Markup:
+// <label>Name</label>
+//
+// Styleguide base.form-labels
+
+
+// Inputs
+//
+// Tweaks to Foundation inputs.
+// 1. Use border radius on fields by default.
+// 2. Override Foundation to better align radio/checkbox inputs with their
+// labels.
+// 3. Only allow vertical resizing of textareas.
+// 4. Space buttons next to each other in a group apart from each other.
+// 5. Add border radius to prefix elements by default.
+// 6. Add border radius to postfix elements by default.
+// 7. Ensure our custom label font weight does not affect inputs.
+//
+// Markup:
+// <input type="text">
+//
+// Styleguide base.text-input
+//
+
+// #{text-inputs(all, 'input')},
+// input[type="file"] {
+//     @extend input.radius;  /* 1 */
+
+//     &::placeholder {
+//         // color: $pumice;
+//     }
+// }
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    vertical-align: middle;  /* 2 */
+}
+
+textarea {
+    @extend textarea.radius; /* 1 */
+    resize: vertical;  /* 3 */
+}
+
+select {
+    @extend select.radius; /* 1 */
+}
+
+// #{text-inputs(all, 'input')},
+// select {
+//     padding: rem-calc(15);
+//     height: auto;
+
+//     &.disabled,
+//     &[disabled] {
+//         // color: $disabled-color;
+//     }
+// }
+
+.prefix,
+label.prefix,
+span.prefix,
+.postfix,
+label.postfix,
+span.postfix {
+    padding: rem-calc(15) 0;
+    height: auto;
+    font-size: 1em;
+    line-height: normal;
+}
+
+.prefix,
+label.prefix,
+span.prefix {
+    border-top-left-radius: $global-radius;  /* 5 */
+    border-bottom-left-radius: $global-radius;  /* 5 */
+}
+
+.postfix,
+label.postfix,
+span.postfix {
+    border-top-right-radius: $global-radius;  /* 6 */
+    border-bottom-right-radius: $global-radius;  /* 6 */
+}
+
+
+.label,
+label {
+    input {
+        // font-weight: $font-weight-normal; /* 7 */
+    }
+}
+
+.button-group {
+    @media #{$medium-up} {
+        .button + .button {
+            margin-left: 1em;  /* 4 */
+        }
+    }
+}
+
+.link--underline {
+    text-decoration: underline;
+    // color: $info-color;
+}
+
+.link--image-text {
+    color: $primary-color;
+    display: block;
+    // font-weight: $font-weight-bold;
+    max-width: 150px;
+    margin: 0 auto;
+    text-align: center;
+
+    &:hover {
+        .link__image {
+            transform: translateY(-5px);
+        }
+    }
+
+    .link__image,
+    .link__text {
+        display: block;
+    }
+
+    .link__image {
+        margin-bottom: 1rem;
+        transition: transform 250ms ease;
+    }
+}
+
+figure {
+    margin: 0; /* remove foundation margin */
+}
+
+iframe[src*=youtube] {
+    height: 100%;
+    width: 100%;
+}
+
+// state to prevent body from being scrolled, ie. modals
+body.is-unscrollable {
+    overflow: hidden;
+}
+
+.inline-list {
+    margin-left: -1rem;
+}
+
+.display--small-only {
+    @media #{$medium-up} {
+        display: none;
+    }
+
+    &.display--small-only-inline {
+        display: inline-block;
+
+        @media #{$medium-up} {
+            display: none;
+        }
+    }
+}
+
+.display--medium-up {
+    @media #{$small-only} {
+        display: none !important;
+    }
+}

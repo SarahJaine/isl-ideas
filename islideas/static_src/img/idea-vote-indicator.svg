@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/css" href="../css/app.css" ?>
+<svg class="idea-vote__indicator-svg" viewBox="0 0 12 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>idea-vote-indicator</title>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-Copy" transform="translate(-293.000000, -649.000000)" fill="#7E8496">
+            <g id="Group-16" transform="translate(278.000000, 449.000000)">
+                <g id="Group-14-Copy" transform="translate(0.000000, 184.000000)">
+                    <g id="Group-2" transform="translate(0.000000, 5.000000)">
+                        <path d="M20.1324233,12.4982525 C20.7385904,11.7111997 21.7162944,11.7045945 22.3275487,12.4982525 L26.6025142,18.0489054 C27.2086813,18.8359581 26.8906106,19.4739905 25.9008001,19.4739905 L16.5591719,19.4739905 C15.5654587,19.4739905 15.2462035,18.8425634 15.8574578,18.0489054 L20.1324233,12.4982525 Z" id="idea-vote-indicator"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

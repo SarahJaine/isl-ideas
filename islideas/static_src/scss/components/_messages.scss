@@ -1,0 +1,10 @@
+.messages {
+    background: $teal;
+}
+
+.messages__message {
+    color: $teal-dark;
+    list-style: none;
+    padding: rem-calc(20);
+    text-align: center;
+}

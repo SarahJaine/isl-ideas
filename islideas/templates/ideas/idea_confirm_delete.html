@@ -1,0 +1,24 @@
+{% extends 'ideas/base.html' %}
+{% block title %}
+Delete {{ idea.title }}{{ block.super }}
+{% endblock title %}
+
+{% block content %}
+<div class="modify-content__container">
+  <div class="row">
+      <div class="columns small-12 medium-8 medium-offset-2">
+        <h1 class="heading--medium">Delete Idea</h1>
+          <form role="form" action="" method="post">
+              {% csrf_token %}
+
+              <p> Are you sure you want to delete this idea?</p>
+              <p class="comment--static">
+                  {{idea.title}}
+              </p>
+              <button type="submit" value="confirm" class="button">Confirm</button>
+              <a href="{% url 'idea_detail' idea.slug %}" class="text-link--alt text-link--no-decoration text-link__space-left">Cancel</a>
+            </form>
+      </div>
+  </div>
+</div> <!-- end .edit-delete-comment__container -->
+{% endblock %}

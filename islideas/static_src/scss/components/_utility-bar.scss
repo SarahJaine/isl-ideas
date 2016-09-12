@@ -1,0 +1,108 @@
+.utility-bar {
+    border-bottom: 1px solid $light-gray;
+}
+
+.utility-bar__content {
+    display: flex;
+    align-items: center;
+    // padding-right: rem-calc(20);
+    flex-direction: column-reverse;
+
+    @media #{$medium-up} {
+        padding-right: 0;
+        flex-direction: row;
+    }
+}
+
+.utility-bar__list {
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid $light-gray;
+    display: flex;
+
+    @media #{$medium-up} {
+        display: block;
+    }
+
+    .utility-bar__list-item {
+        list-style: none;
+        display: inline-block;
+        padding-left: rem-calc(20);
+        padding-right: rem-calc(20);
+
+        @media #{$medium-up} {
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+
+        a {
+            color: $body-font-color;
+            position: relative;
+            padding: rem-calc(15) 0;
+            display: inline-block;
+            opacity: .5;
+            transition: opacity .1s;
+
+
+            &:after {
+                background-color: $primary-color;
+                bottom: 0px;
+                content: '';
+                height: 0;
+                left: 0px;
+                position: absolute;
+                transition: height .1s ease-in;
+                width: 100%;
+            }
+
+            &.active, &:hover {
+                opacity: 1;
+                color: $body-font-color;
+                &:after {
+                    height: 4px;
+                }
+            }
+        }
+    }
+}
+
+.left-separator {
+    position: relative;
+    margin-left: auto;
+
+    @media #{$medium-up} {
+        margin-left: rem-calc(30);
+
+        &::before {
+            content: '';
+            height: 70%;
+            width: 1px;
+            position: absolute;
+            background-color: $light-gray;
+            top: 15%;
+            left: -16px;
+        }
+    }
+}
+
+
+.utility-bar__button {
+    padding: rem-calc(15) 0;
+    width: 100%;
+
+    @media #{$medium-up} {
+        padding: 0;
+        text-align: right;
+    }
+
+    .button {
+        width: 100%;
+
+        @media #{$medium-up} {
+            width: auto;
+        }
+    }
+
+
+}

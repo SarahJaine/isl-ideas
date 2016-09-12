@@ -1,0 +1,4 @@
+domain: example.isl.codes
+heroku:
+  staging: isl-ideas-staging
+  production: isl-ideas

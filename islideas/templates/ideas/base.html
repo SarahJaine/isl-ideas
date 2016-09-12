@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="A place to imagine and discuss internal projects and new technologies">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="mask-icon" href="{% static 'img/isl-logo.svg' %}" color="#EE645A">
+
+    {# Facebook Open Graph Tags #}
+    <meta property="og:title" content="ISL Ideas" />
+    <meta property="og:site_name" content="ISL Ideas" />
+    <meta property="og:url" content="https://ideas.isl.co/">
+    <meta property="og:description" content="A place to imagine and discuss internal projects and new technologies" />
+    <meta property="fb:app_id" content="">
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="{% static 'img/isl-van@2x.jpg' %}"/>
+
+    {# Twitter Summary Card with Large Image tags #}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@istrategylabs">
+    <meta name="twitter:creator" content="@istrategylabs">
+    <meta name="twitter:title" content="ISL Ideas">
+    <meta name="twitter:description" content="A place to imagine and discuss internal projects and new technologies">
+    <meta name="twitter:image" content="{% static 'img/isl-van@2x.jpg' %}">
+
+    <title>
+    {% block title %}
+       - ISL Ideas
+    {% endblock title %}
+    </title>
+
+    {% if ws_host %}
+        <link rel="ws" src="{{ ws_host }}"/>
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+    <script src="https://use.typekit.net/sqd0rtu.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    {% block header %}{% endblock header %}
+</head>
+
+<body>
+    <header class="header">
+        <div class="row">
+            <div class="columns small-12 medium-10 medium-offset-1">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'img/isl-logo.svg' %}" alt="ISL Ideas">
+                        </a>
+                    </div>
+                    <div class="header__actions">
+                        <ul class="actions-list">
+                            <li>
+                                <div class="actions__user-links">
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'logout' %}" class="text-link text-link--white">Logout</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            <li>
+                                <form action="{% url 'home' %}" method="GET" class="search-field">
+                                    <input type="text" name="q" />
+                                    <button type="submit">search</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__bg-img">
+                        <img src="{% static 'img/isl-van@2x.jpg' %}" alt="" class="">
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end .row -->
+    </header>
+
+    {% if messages %}
+        <ul class="messages">
+            <div class="row">
+                <div class="columns small-12">
+                    {% for message in messages %}
+                        <li id="message_{{ forloop.counter }}"
+                          {% if message.tags %} class="{{ message.tags }} messages__message"
+                              {% endif %}>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </div>
+            </div>
+        </ul>
+    {% endif %}
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
+    <script src="{% static 'js/bundle.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+// Editing a comment
+.edit-comment__container {
+    padding-top: rem-calc(40);
+}
+
+// Deleting a comment
+.comment--static {
+    background: $light-gray;
+    border-radius: rem-calc(4);
+    padding: rem-calc(20);
+}

@@ -1,0 +1,21 @@
+{% extends 'ideas/base.html' %}
+
+{% block title %}
+{{ tag.name|title }}{{ block.super }}
+{% endblock title %}
+
+{% block content %}
+
+{% include 'ideas/partials/utility_bar.html' %}
+<div class="lightest-gray">
+    <div class="row">
+        <div class="columns small-12 medium-10 medium-offset-1">
+            <p class="meta-info center-text">Ideas tagged</p>
+            <h2 class="tag-summary__heading heading--small center-text">"{{ tag.name }}"</h2>
+        </div>
+    </div>
+</div>
+{% include 'ideas/partials/list.html' %}
+
+{% endblock %}
+

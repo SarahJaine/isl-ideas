@@ -1,0 +1,48 @@
+{% load humanize %}
+
+<ul class="idea-list">
+{% for idea in idea_list %}
+
+    <li class="idea-list__idea">
+        <div class="row">
+            <div class="columns small-12 medium-10 medium-offset-1">
+                <div class="idea">
+                    <div class="idea-vote-container">
+                        <div class="idea-vote {% if idea.id in user_votes %} idea-vote__cast {% endif %}" data-idea-id="{{ idea.id }}">
+                            <div class="vote-form" id="ballot">
+                                <div class="idea-vote__indicator-arrow"></div>
+                            </div>
+                            <div class="vote__total" id="vote__total-for-{{ idea.id }}">
+                               {{ idea.votes }}
+                            </div>
+                        </div>
+                        <div class="meta-info display--small-only display--small-only-inline">
+                            <div class="seperator"></div>
+                            <a href="{% url 'idea_detail' slug=idea.slug %}#comments" class="text-link--alt ">{{ idea.comments }} Comments</a>
+                        </div>
+                    </div>
+                    <div class="idea-details">
+                        <h2 class="idea-summary__heading heading--small">
+                            <a href="{% url 'idea_detail' slug=idea.slug %}">{{ idea.title }}
+                            </a>
+                        </h2>
+                        <div class="meta-info">
+                            Submitted {{ idea.date|naturaltime }} by <span class="comment-meta__user">{{ idea.author_name }}</span>
+                            <div class="seperator display--medium-up"></div>
+
+                            <a href="{% url 'idea_detail' slug=idea.slug %}#comments" class="text-link--alt display--medium-up">{{ idea.comments }} Comments</a>
+
+                        </div>
+
+                        {% include 'ideas/partials/idea_tags.html' %}
+                    </div> <!-- end .idea-details -->
+
+
+
+                </div> <!-- end .idea-list__idea -->
+            </div> <!-- end .columns -->
+        </div> <!-- end .row -->
+    </li>
+
+{% endfor %}
+</ul> <!-- end .idea-list -->

@@ -1,0 +1,22 @@
+{% extends 'ideas/base.html' %}
+{% load staticfiles %}
+{% block title %}Login{{ block.super }}
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div class="columns small-12 medium-10 medium-offset-1">
+        <br>
+        <h1>Login</h1>
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <p>
+             I don’t think we’ve met before.
+        </p>
+        <a href="{% url 'islauth_login' %}?next={{ request.path }}" class="button button--login">
+            Login with ISL
+        </a>
+    </div>
+</div>
+{% endblock %}

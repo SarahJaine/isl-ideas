@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+    {% block title %}
+       - ISL Ideas
+    {% endblock title %}
+    </title>
+
+    {% if ws_host %}
+        <link rel="ws" src="{{ ws_host }}"/>
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+    <script src="https://use.typekit.net/sqd0rtu.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block header %}{% endblock header %}
+</head>
+
+<body>
+    <header class="header header--interior">
+        <div class="row">
+            <div class="columns small-12 medium-10 medium-offset-1">
+                <div class="header__content">
+                    <div class="header__logo">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'img/isl-logo.svg' %}" alt="ISL Ideas">
+                        </a>
+                    </div>
+                    <div class="header__actions">
+                        <ul class="actions-list">
+                            <li>
+                                <div class="actions__user-links">
+                                    {% if user.is_authenticated %}
+                                        <a href="{% url 'logout' %}" class="text-link text-link--white">Logout</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            <li>
+                                <form action="{% url 'home' %}" method="GET" class="search-field">
+                                    <input type="text" name="q" />
+                                    <button type="submit">search</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end .row -->
+    </header>
+
+    {% if messages %}
+        <ul class="messages">
+            <div class="row">
+                <div class="columns small-12">
+                    {% for message in messages %}
+                        <li id="message_{{ forloop.counter }}"
+                          {% if message.tags %} class="{{ message.tags }} messages__message"
+                              {% endif %}>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </div>
+            </div>
+        </ul>
+    {% endif %}
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
+
+    <script src="{% static 'js/bundle.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</body>
+
+</html>
